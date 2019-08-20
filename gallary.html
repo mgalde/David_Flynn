@@ -83,6 +83,183 @@ img {
     right: -30px;
     bottom: 22px;
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+/*
+** Separating `:focus-within` from `:hover` for browsers yet supporting it
+** See https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
+*/
+
+/*
+Structure
+*/
+
+.menu >:first-child { display:flex; }
+
+.menu-item { flex:0 1 auto; }
+
+.sub-menu  {
+  position:absolute;
+  max-height:0;
+  -webkit-transform:scale(0);
+          transform:scale(0);
+}
+
+.menu-item:hover .sub-menu { max-height:100vh; -webkit-transform:scale(1); transform:scale(1); }
+.menu-item:focus-within .sub-menu { max-height:100vh; -webkit-transform:scale(1); transform:scale(1); }
+
+
+
+/*
+Decorator
+*/
+
+.menu>:first-child>.menu-item>:first-child::after {
+  content:""; /* no */
+  margin:0 0.5ch;
+}
+
+.menu>:first-child>.menu-item>:first-child:not(:only-child)::after {
+  content:"/"; /* directory */
+  margin:0 0.5ch;
+}
+
+
+
+
+/*
+Perf.
+*/
+
+.menu {
+  --menu-fg:hsl(0,0%,90%);
+  --menu-bg:hsl(0,0%,10%);
+  --menu-fg2:hsl(0,0%,10%);
+  --menu-bg2:hsl(0,0%,100%);
+  --menu-border:1px solid hsl(0,0%,0%);
+  --menu-width:100vw;
+  --item-padding-level-1:1em 2em;
+  --item-padding-level-2:0.5em 2em;
+  --submenu-border-width:0.1em;
+  --shadow:/* apply to submenu, first level item label */
+    -3px 3px 0 1px black /* should <= half of menu margin */
+    ;
+
+  width:var(--menu-width);
+  border:var(--menu-border);
+  border-left:0 none;
+  border-right:0 none;
+  background:var(--menu-bg);
+  color:var(--menu-fg);
+  box-sizing:border-box;
+  font:1em/1 vt323, monospace;
+  padding:0 1em;
+}
+
+
+/*
+Anchors
+*/
+.menu a {
+  text-decoration:none;
+  display:block; height:100%; width:100%;
+  color:inherit;
+  background:transparent; /* avoid inherit non-opq color */
+}
+
+
+/*
+First level labels (the <a>)
+*/
+
+.menu>:first-child>.menu-item>:first-child {
+  box-sizing:border-box;
+  padding:var(--item-padding-level-1);
+  background:var(--menu-bg);
+  text-align:center;
+}
+
+.menu>:first-child>.menu-item:hover>:first-child { background:var(--menu-bg2); color:var(--menu-fg2); }
+.menu>:first-child>.menu-item:focus-within>:first-child { background:var(--menu-bg2); color:var(--menu-fg2); }
+
+
+/*
+Submenu
+*/
+
+.menu .sub-menu {
+  box-sizing:border-box;
+  box-shadow:var(--shadow);
+  background:var(--menu-bg2);
+  color:var(--menu-fg2);
+  z-index:-1;
+}
+
+.menu .sub-menu >.menu-item:first-of-type { margin-top:0.5em; }
+.menu .sub-menu >.menu-item:last-of-type { margin-bottom:0.5em; }
+.menu .sub-menu >.menu-item {
+  padding:var(--item-padding-level-2);
+  white-space:pre;
+}
+.menu .sub-menu >.menu-item:hover { background:var(--menu-bg); color:var(--menu-fg); }
+.menu .sub-menu >.menu-item:focus-within { background:var(--menu-bg); color:var(--menu-fg); }
+
+.menu>:first-child>.menu-item:hover { z-index:1; position:relative; box-shadow:var(--shadow)  }
+.menu>:first-child>.menu-item:focus-within { z-index:1; position:relative; box-shadow:var(--shadow) }
+.menu .menu-item:hover .sub-menu { -webkit-transform:scale(1) translate(0, calc(var(--submenu-border-width) * -1)); transform:scale(1) translate(0, calc(var(--submenu-border-width) * -1)); }
+.menu .menu-item:focus-within .sub-menu { -webkit-transform:scale(1) translate(0, calc(var(--submenu-border-width) * -1)); transform:scale(1) translate(0, calc(var(--submenu-border-width) * -1)); }
+
+
+
+/*
+Borders
+*/
+.menu>:first-child>.menu-item>:first-child {
+  border:var(--submenu-border-width) inset transparent;
+}
+
+.menu .sub-menu { border:var(--submenu-border-width) solid var(--menu-fg); }
+
+.menu>:first-child>.menu-item:hover>:first-child { border:var(--submenu-border-width) solid var(--menu-fg); }
+.menu>:first-child>.menu-item:focus-within>:first-child { border:var(--submenu-border-width) solid var(--menu-fg); }
+
+.menu>:first-child>.menu-item:hover>:first-child:not(:only-child)
+{ border-bottom:var(--submenu-border-width) none var(--menu-fg2); }
+.menu>:first-child>.menu-item:focus-within>:first-child:not(:only-child)
+{ border-bottom:var(--submenu-border-width) none var(--menu-fg2); }
+
+
+/*
+Resp.
+*/
+
+@media(max-width:1024px) {
+  .menu>:first-child {
+    flex-flow:column wrap;
+  }
+  .menu {
+    --item-padding-level-1:0.5em 1em;
+    --item-padding-level-2:0.5em 1em;
+    border:0 none;
+    width:20ch; /* Edge */
+    width:-webkit-max-content;
+    width:-moz-max-content;
+    width:max-content; /* ff, chrome */
+  }
+  .menu>:first-child>.menu-item>:first-child {
+    border-left-color:var(--menu-fg);
+    border-right-color:transparent;
+    text-align:left;
+  }
+  .menu>:first-child>.menu-item:not(:first-child) {
+    /* other than "HOME", the 1st menu item*/
+  }
+  .menu .menu-item:hover>:first-child:not(:only-child)::before {
+    /* metaphor add here */
+  }
+}
   </style>
 </head>
 <body translate="no">
@@ -97,8 +274,32 @@ img {
 <meta name="author" content="Michael Galde">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 </head>
-<body>
+<body translate="no">
+<nav class="menu">
+<ol>
+<li class="menu-item"><a href="#0">Home</a></li>
+<li class="menu-item"><a href="#0">About</a></li>
+<li class="menu-item">
+<a href="#0">Widgets</a>
+<ol class="sub-menu">
+<li class="menu-item"><a href="#0">Big Widgets</a></li>
+<li class="menu-item"><a href="#0">Bigger Widgets</a></li>
+<li class="menu-item"><a href="#0">Huge Widgets</a></li>
+</ol>
+</li>
+<li class="menu-item">
+<a href="#0">Kabobs</a>
+<ol class="sub-menu">
+<li class="menu-item"><a href="#0">Shishkabobs</a></li>
+<li class="menu-item"><a href="#0">BBQ kabobs</a></li>
+<li class="menu-item"><a href="#0">Summer kabobs</a></li>
+</ol>
+</li>
+<li class="menu-item"><a href="#0">Contact</a></li>
+</ol>
+</nav>
 
 <div class="container">
 <h3 class="text-center mt-5">David Flynn</h3>
