@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>David Flynn Sale</title>
+<link rel="stylesheet" href="reset.css">
+<link rel='stylesheet' href='bootstrap.css'>
+<style>
+  .glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
 
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+</style>
+<script src="prefixfree.js"></script>
+</head>
+<body translate="no">
+<div class="container">
+<div class="well well-sm">
+<strong>Display</strong>
+<div class="btn-group">
+<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Grid</a>
+</div>
+</div>
+<div id="products" class="row list-group">
+  
+  
+<div class="item  col-xs-4 col-lg-4">
+<div class="thumbnail">
+<img class="group list-group-image" src="https://placehold.it/400x250/000/fff" alt="" />
+<div class="caption">
+<h4 class="group inner list-group-item-heading">7 hp. craftsman</h4>
+<p class="group inner list-group-item-text">
+Product description... 2 ea. 7 hp. craftsman 80 gal. 150 psi professional compressors. Vertical 175 psi. = 16.9 cfm.</p>
+<div class="row">
+<div class="col-xs-12 col-md-6">
+<p class="lead">
+$1,200</p>
+</div>
+<div class="col-xs-12 col-md-6">
+<a class="btn btn-success" href="mailto:sale@davidaflynn.com?subject=7 hp. craftsman">Request Details</a> 
+</div>
+</div>
+</div>
+</div>
+</div>
+  
+<div class="item  col-xs-4 col-lg-4">
+<div class="thumbnail">
+<img class="group list-group-image" src="https://placehold.it/400x250/000/fff" alt="" />
+<div class="caption">
+<h4 class="group inner list-group-item-heading">6 hp. Campbell</h4>
+<p class="group inner list-group-item-text">
+Product description... 6 hp. Campbell hosfeld 60 gal. cast iron compressor. Vertical 125 psi = 11.5 cfm</p>
+<div class="row">
+<div class="col-xs-12 col-md-6">
+<p class="lead">
+$350</p>
+</div>
+<div class="col-xs-12 col-md-6">
+<a class="btn btn-success" href="mailto:sale@davidaflynn.com?subject=6 hp. Campbell">Request Details</a> 
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src='jquery.js'></script>
+<script src='bootstrap.js'></script>
+<script id="rendered-js">
+      $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+    </script>
+</body>
+</html>
