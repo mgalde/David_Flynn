@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154639134-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154639134-1');
+</script>
+
+    <title>David Flynn Sale</title>
+    <link href='https://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="sale.css">
+</head>
+<body>
+
+    <header class="header">
+        <hgroup>
+            <h1>David Flynn</h1>
+            <h2>SHOP SALE PRICE LIST</h2>
+        </hgroup>
+    </header>
+
+    <section class="demo">
+
+        <dl class="list nigiri">
+            <dt>Tools</dt>
+            
+            <dd><a href="store/compressor">Compressors</a></dd>
+            <dd><a href="store/forges">Forges</a></dd>
+            <dd><a href="store/saw">Band saws</a></dd>
+            <dd><a href="store/drill">Drill press</a></dd>
+  
+            <dd><a href="store/tables">Fabrication and weld tables</a></dd>
+            <dd><a href="store/fabrication">Layout/fabrication tables</a></dd>
+        </dl>
+
+        <dl class="list maki">
+            <dt>Shop inventory</dt>
+            <dd><a href="store/plates">heavy plate, bars, etc</a></dd>
+            <dd><a href="store/plates">Ring roller </a></dd>
+            <dd><a href="store/plates">Lock box for pick up truck</a></dd>
+            <dd><a href="store/plates">100 lb. propane tanks</a></dd>
+            <dd><a href="store/plates">85 gallon steel h2o tank</a></dd>
+            <dd><a href="store/plates">Shade structure frame</a></dd>
+            <dd><a href="store/plates">Utility spools tubing</a></dd>
+            
+        </dl>
+
+        <dl class="list sashimi">
+            <dt>External inventory</dt>
+            <dd><a href="store/truck">1965 chevy truck 4x4</a></dd>
+            <dd><a href="store/truck">4x4 wolverine 350 quad</a></dd>
+            <dd><a href="store/truck">Trailers</a></dd>
+            <dd><a href="store/truck">Hill Billy boom</a></dd>
+            <dd><a href="store/truck">Gantry crane</a></dd>
+            <dd><a href="store/truck">log lathe</a></dd>
+            <dd><a href="store/truck">Table top wood band saw</a></dd>
+            <dd><a href="store/truck">BT-12 Alva Allen OBI punch press</a></dd>
+            <dd><a href="store/truck">Racks / stove / heater / H beams</a></dd>
+            <dd><a href="store/truck">Custom tooling</a></dd>
+        </dl>
+        
+
+
+        <a href="https://davidaflynn.com" class="toggle">Home</a>
+
+    </section>
+
+    <div class="warning">
+        <div class="message">
+            <h1>CSS 3D Not Detected :(</h1>
+            <p>I couldn't detect your browser's CSS 3D capabilities. If I'm wrong, please <a href="https://github.com/mgalde/David_Flynn/issues" target="_blank">file an issue</a>, otherwise, try a <a href="http://www.google.com/chrome" target="_blank">sexier browser</a></p>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="sale.js"></script>
+    <script>
+
+        // The `enabled` flag will be `false` if CSS 3D isn't available
+
+        if ( $.fn.makisu.enabled ) {
+
+            var $sashimi = $( '.sashimi' );
+            var $nigiri = $( '.nigiri' );
+            var $maki = $( '.maki' );
+
+            // Create Makisus
+
+            $nigiri.makisu({
+                selector: 'dd',
+                overlap: 0.85,
+                speed: 1.7
+            });
+
+            $maki.makisu({
+                selector: 'dd',
+                overlap: 0.6,
+                speed: 0.85
+            });
+
+            $sashimi.makisu({
+                selector: 'dd',
+                overlap: 0.2,
+                speed: 0.5
+            });
+
+            // Open all
+            
+            $( '.list' ).makisu( 'open' );
+
+            // Toggle on click
+
+            $( '.toggle' ).on( 'click', function() {
+                $( '.list' ).makisu( 'toggle' );
+            });
+
+            
+
+        } else {
+
+            $( '.warning' ).show();
+        }
+
+    </script>
+</body>
+</html>
