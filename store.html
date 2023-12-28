@@ -1,5 +1,465 @@
-<!doctype html>
-<html>
+﻿<!doctype html>
+<html lang="en" data-bs-theme="auto">
 <head>
-  </head>
+    <script src="./assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A website for the Artist and Blacksmith David A. Flynn">
+    <meta name="author" content="Michael Galde">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>David A. Flynn · Life of Fire and Metal</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .sale-item-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .sale-item-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Additional styling for expanded card */
+        .expanded-card .sale-item-image {
+            width: 100%;
+        }
+
+        .expanded-card .sale-item-description {
+            -webkit-line-clamp: unset;
+        }
+
+        /* Modal styling for expanded view */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .sale-item-container {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .sale-item-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .sale-item-title {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .sale-item-description {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .sale-item-price {
+            font-weight: bold;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+            .bd-mode-toggle .dropdown-menu .active .bi {
+                display: block !important;
+            }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+        </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </symbol>
+    </svg>
+
+    <div class="container">
+        <header class="border-bottom lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-body-emphasis text-decoration-none" href="https://davidaflynn.com/">David A. Flynn</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="link-secondary" href="#" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5" /><path d="M21 21l-5.2-5.2" /></svg>
+                    </a>
+                    <a class="btn btn-sm btn-outline-secondary" href="./store.html">Store</a>
+                </div>
+            </div>
+        </header>
+
+    </div>
+
+    <main class="container">
+
+        <div class="row">
+            <!-- Sale Item Container -->
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/House.jpg" alt="House at end of tracks" class="sale-item-image">
+                    <h3 class="sale-item-title">House at End of Tracks</h3>
+                    <p class="sale-item-description"> The image depicts a metal sculpture that features a miniature house on wheels, situated on a set of tracks that end abruptly at the edge of a table. The house is stylized with a pitched roof, and there are small human figures within it, suggesting a scene of motion or transition. The table supporting the structure has a triangular shape and a cross brace for stability. The artwork conveys a sense of journey or movement, halted unexpectedly, perhaps symbolizing a sudden stop in life or progress. The use of metal and the monochromatic color scheme give the sculpture an industrial feel. The piece is by the artist David Flynn and is titled "House at End of Tracks."
+
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: House at End of Tracks&body=I would like to purchase the House at End of Tracks. Please provide further details.">$2,926.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/rickshaw.jpg" alt="Rickshaw" class="sale-item-image">
+                    <h3 class="sale-item-title">Rickshaw</h3>
+                    <p class="sale-item-description">
+                        The image displays an artistic piece titled "Rickshaw" by David Flynn. The artwork is a sculpture that resembles a rickshaw, which traditionally is a human-powered mode of transport. This sculpture has a set of large, metal, hoop-like structures that create an overhead canopy, possibly suggestive of motion or energy. The base of the sculpture has a wooden platform with a seat and metal fixtures, and it is equipped with a pair of wheels resembling those of a bicycle or small cart. The front of the sculpture extends into two wooden poles that would typically be used to pull the rickshaw. The design is a blend of traditional design with a modern, artistic twist.
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Rickshaw&body=I would like to purchase the Rickshaw. Please provide further details.">$2,926.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/Loosepattern.jpg" alt="Loose Pattern" class="sale-item-image">
+                    <h3 class="sale-item-title">Loose Pattern</h3>
+                    <p class="sale-item-description">
+                        The image showcases an artwork titled "Loose Pattern" by David Flynn. It appears to be an abstract sculpture primarily constructed from wood and metal. The sculpture consists of two vertical, weathered wooden beams full of holes and notches, standing parallel to each other on a flat metal base. Between the beams, there are several metal rods with ball-shaped ends, arranged in a diagonal crisscross pattern, reminiscent of a loose or abstract weaving. On the left side, a separate element of the sculpture features a single vertical rod with a cup-like shape at the top, supported by three smaller rods with ball ends, all mounted on a separate metal base.
+
+                        This piece has a rustic aesthetic due to the aged wood and the patina on the metal, suggesting a combination of natural decay and industrial elements. The arrangement might imply a sort of controlled chaos or an organic pattern, thus the title "Loose Pattern." The work could be interpreted as exploring themes of structure and randomness, craftsmanship, or the relationship between nature and industry.
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Loose Pattern&body=I would like to purchase the Loose Pattern. Please provide further details.">$2,926.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/DeskChair.jpg" alt="Desk Chair" class="sale-item-image">
+                    <h3 class="sale-item-title">Desk Chair</h3>
+                    <p class="sale-item-description">
+                        The image presents a piece of furniture titled "Desk Chair" by David Flynn. It's a unique, handcrafted chair that seamlessly integrates natural wood elements with a metal frame. The chair features a seat and a separate desk surface, both made from beautifully polished wood with rich, dark, and reddish-brown tones, highlighting the natural grain and knots of the wood.
+
+                        The desk surface is positioned to the side and slightly above the seat, indicating it is designed for use as a workspace. Both the seat and the desk surface have organic, irregular shapes, which suggests that the wood has been kept as close to its natural form as possible.
+
+                        The metal frame of the chair is painted black, with elegant, slightly curved legs that provide stability. The backrest of the chair is high, with a simple, rectangular shape and a cut-out design that features stylized branches or plant motifs.
+
+                        This combination of materials and the design choices give the piece an artistic, rustic-modern aesthetic. It's a functional piece of art that serves as both a chair and a small workstation, with a design that emphasizes the beauty of natural wood grain.
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Desk Chair&body=I would like to purchase the Desk Chair. Please provide further details.">$2,394.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/Leaf.jpg" alt="Leaf CH" class="sale-item-image">
+                    <h3 class="sale-item-title">Leaf C.H.</h3>
+                    <p class="sale-item-description">
+                        The image features a metal sculpture titled "Leaf C.H." by David Flynn. The piece is crafted to resemble a leaf, with a textured, organic form that serves as the main body of the sculpture. The leaf is elongated and curved, with a stem-like structure that rises to support a circular, flat platform, possibly functioning as a candle holder.
+
+                        The sculpture has a dark patina, which is typical for worked metal, giving it an antique and rustic appearance. The leaf's surface shows intricate details mimicking the natural veins and texture of a leaf, emphasizing the artistic craftsmanship that went into creating this piece.
+
+                        The base of the sculpture is broad and flat, ensuring stability, while the platform supported by the leaf's stem is centered above the base, ideal for placing a candle or small object. The background is a simple, textured cloth, which contrasts with the smooth, metallic finish of the sculpture and brings out the details of the artwork. Overall, the sculpture combines natural inspiration with functional design, embodying a sense of simplicity and elegance.
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Leaf C.H.&body=I would like to purchase the Leaf C.H.. Please provide further details.">$565.25</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/Petroglyth.jpg" alt="Petroglyph" class="sale-item-image">
+                    <h3 class="sale-item-title">Petroglyph.</h3>
+                    <p class="sale-item-description">
+                        The image shows a sculptural piece titled "Petroglyph" by David Flynn. This artwork appears to be a mixed-media piece that incorporates both wood and metal elements, and it seems to function as a bench or a low table.
+
+                        The top surface of the piece is made from weathered wooden planks that show signs of natural aging, such as a distressed white paint finish with spots of bare wood and rust stains, likely from previous metal contact. These planks are supported by a metal frame with a dark finish, which includes a sloping, shelter-like roof over the wooden planks, providing a sense of enclosure or protection.
+
+                        Below the wooden planks, there's a base that features a sand-colored panel with intricate black designs that resemble petroglyphs – ancient rock art created by carving into the surface of a rock. This base is equipped with wheels, suggesting that the piece is mobile.
+
+                        The combination of the petroglyph-inspired designs and the rustic wood and metal materials gives the piece a sense of blending historical art forms with contemporary artistic expression and functionality. The use of materials and the artwork's form suggest a dialogue between past and present, as well as between art and utility.
+                    <p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Petroglyph&body=I would like to purchase the Petroglyph  Please provide further details.">$2,926.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="sale-item-container" onclick="expandCard(this)">
+                    <img src="./assets/images/BestofWest.jpg" alt="Best of The West" class="sale-item-image">
+                    <h3 class="sale-item-title">Best of The West.</h3>
+                    <p class="sale-item-description"> A metal sculpture titled "Best of The West" by David Flynn. The sculpture features an abstract form that represents a combination of natural and human-made elements. The leaves and branches extend upwards and outwards, with some naturalistic detailing that provides texture and depth to the sculpture. The entire piece has a uniform dark patina, typical of worked metal, which highlights its contours and gives it a sense of age and rustic charm.
+
+
+<p class="sale-item-price">
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Best of The West&body=I would like to purchase the Best of The West  Please provide further details.">$2,394.00</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- End of Sale Items -->
+        </div>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded">
+                    <h4 class="fst-italic">I live with <strong>creativity</strong></h4>
+                    <p class="mb-0">I am a professional artist who uses blacksmithing as my primary medium to create artwork. For the past two decades, I have created custom iron and steel artwork for homes, individuals, and public art commissions in Tucson, Arizona. My passions in life are creating art and teaching. I am now sharing my enthusiasm for blacksmithing by instructing others.</p>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <script>
+            function expandCard(element) {
+                // Copy the content of the item into the modal
+                var contentClone = element.cloneNode(true);
+
+                // Create the modal view for expanded card
+                var modal = document.createElement('div');
+                modal.classList.add('modal');
+
+                // Content inside modal
+                var modalContent = document.createElement('div');
+                modalContent.classList.add('modal-content');
+                modalContent.appendChild(contentClone);
+
+                // Close button
+                var closeBtn = document.createElement('span');
+                closeBtn.classList.add('close');
+                closeBtn.innerHTML = '&times;';
+                closeBtn.onclick = function () {
+                    modal.style.display = 'none';
+                    modal.remove();
+                };
+
+                // Increase the image size by 30%
+                var image = modalContent.querySelector('.sale-item-image');
+                image.style.width = '50%';
+                image.style.height = 'auto';
+                image.style.display = 'block';
+                image.style.margin = '0 auto'; // Center the image
+
+                // Adjust the description to show fully
+                var description = modalContent.querySelector('.sale-item-description');
+                description.style.webkitLineClamp = 'unset';
+                description.style.overflow = 'visible';
+                description.style.textOverflow = 'clip';
+
+                // Append close button to modal content
+                modalContent.insertBefore(closeBtn, modalContent.firstChild);
+
+                // Append modal content to modal
+                modal.appendChild(modalContent);
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                        modal.remove();
+                    }
+                };
+
+                // Show the modal
+                document.body.appendChild(modal);
+                modal.style.display = 'block';
+            }
+
+        </script>
+
+    </main>
+
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>Blog built for <a href="https://davidaflynn.com/">David A. Flynn</a> by <a href="https://michaelgalde.com">Michael Galde</a>.</p>
+        <p class="mb-0">
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

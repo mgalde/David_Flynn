@@ -1,0 +1,99 @@
+/* stylelint-disable stylistic/selector-list-comma-newline-after */
+
+:root {
+    --background-image: url('https://davidaflynn.com/bg-1.png');
+    --background-image-dark: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--background-image);
+}
+
+[data-bs-theme="light"] .bg-image,
+[data-bs-theme="auto"] .bg-image,
+.light-mode .bg-image {
+    background-image: var(--background-image);
+    /* Other styles here */
+}
+
+[data-bs-theme="dark"] .bg-image,
+.dark-mode .bg-image {
+    background-image: var(--background-image-dark);
+    /* Other styles here */
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+[data-bs-theme="light"] .bg-image,
+[data-bs-theme="auto"] .bg-image,
+.light-mode .bg-image {
+    background-image: var(--background-image);
+    /* Other styles here */
+}
+
+[data-bs-theme="dark"] .bg-image,
+.dark-mode .bg-image {
+    background-image: var(--background-image-dark);
+    /* Other styles here */
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo-light-theme {
+    display: block; /* Shown by default */
+}
+
+.logo-dark-theme {
+    display: none; /* Hidden by default */
+}
+
+/* Assuming you have a class on the body or a parent element for dark theme */
+.dark-theme .logo-light-theme {
+    display: none; /* Hide the light theme logo */
+}
+
+.dark-theme .logo-dark-theme {
+    display: block; /* Show the dark theme logo */
+}
