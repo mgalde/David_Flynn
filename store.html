@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="auto">
 <head>
     <script src="./assets/js/color-modes.js"></script>
 
@@ -209,7 +209,7 @@
                 type="button"
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
-                aria-label="Toggle theme (light)">
+                aria-label="Toggle theme (auto)">
             <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
             <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
         </button>
@@ -218,7 +218,7 @@
                 <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
                     <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
                     Light
-                    <svg class="bi ms-auto" width="1em" height="1em"><use href="#check2"></use></svg> <!-- Removed d-none class -->
+                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
                 </button>
             </li>
             <li>
@@ -229,7 +229,7 @@
                 </button>
             </li>
             <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="false">
                     <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
                     Auto
                     <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
@@ -237,7 +237,6 @@
             </li>
         </ul>
     </div>
-
 
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -260,8 +259,9 @@
                     <a class="blog-header-logo text-body-emphasis text-decoration-none" href="https://davidaflynn.com/">David A. Flynn</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-
-
+                    <a class="link-secondary" href="#" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5" /><path d="M21 21l-5.2-5.2" /></svg>
+                    </a>
                     <a class="btn btn-sm btn-outline-secondary" href="./store.html">Store</a>
                 </div>
             </div>
@@ -276,11 +276,11 @@
             <div class="col-md-4 col-sm-12">
                 <div class="sale-item-container" onclick="expandCard(this)">
                     <img src="./assets/images/House.jpg" alt="House at end of tracks" class="sale-item-image">
-                    <h3 class="sale-item-title">House at End of Tracks</h3>
+                    <h3 class="sale-item-title">House at End of the Tracks</h3>
                     <p class="sale-item-description"> The image depicts a metal sculpture that features a miniature house on wheels, situated on a set of tracks that end abruptly at the edge of a table. The house is stylized with a pitched roof, and there are small human figures within it, suggesting a scene of motion or transition. The table supporting the structure has a triangular shape and a cross brace for stability. The artwork conveys a sense of journey or movement, halted unexpectedly, perhaps symbolizing a sudden stop in life or progress. The use of metal and the monochromatic color scheme give the sculpture an industrial feel. The piece is by the artist David Flynn and is titled "House at End of Tracks."
 
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: House at End of Tracks&body=I would like to purchase the House at End of Tracks. Please provide further details.">$2,926.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: House at End of Tracks&body=I would like to purchase the House at End of Tracks. Please provide further details.">$2,200.00</a>
                     </p>
                 </div>
             </div>
@@ -288,11 +288,10 @@
             <div class="col-md-4 col-sm-12">
                 <div class="sale-item-container" onclick="expandCard(this)">
                     <img src="./assets/images/rickshaw.jpg" alt="Rickshaw" class="sale-item-image">
-                    <h3 class="sale-item-title">Rickshaw</h3>
-                    <p class="sale-item-description">
-                        The image displays an artistic piece titled "Rickshaw" by David Flynn. The artwork is a sculpture that resembles a rickshaw, which traditionally is a human-powered mode of transport. This sculpture has a set of large, metal, hoop-like structures that create an overhead canopy, possibly suggestive of motion or energy. The base of the sculpture has a wooden platform with a seat and metal fixtures, and it is equipped with a pair of wheels resembling those of a bicycle or small cart. The front of the sculpture extends into two wooden poles that would typically be used to pull the rickshaw. The design is a blend of traditional design with a modern, artistic twist.
+                    <h3 class="sale-item-title">SouthWest Rickshaw </h3><p>7 x 11 x 9 <p>350lbs<p>
+                    <p class="sale-item-description"> The image displays an artistic piece titled "Rickshaw" by David Flynn. The artwork is a sculpture that resembles a rickshaw, which traditionally is a human-powered mode of transport. This sculpture has a set of large, metal, hoop-like structures that create an overhead canopy, possibly suggestive of motion or energy. The base of the sculpture has a wooden platform with a seat and metal fixtures, and it is equipped with a pair of wheels resembling those of a bicycle or small cart. The front of the sculpture extends into two wooden poles that would typically be used to pull the rickshaw. The design is a blend of traditional design with a modern, artistic twist.
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Rickshaw&body=I would like to purchase the Rickshaw. Please provide further details.">$2,926.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Rickshaw&body=I would like to purchase the Rickshaw. Please provide further details.">$2,200.00</a>
                     </p>
                 </div>
             </div>
@@ -306,7 +305,7 @@
 
                         This piece has a rustic aesthetic due to the aged wood and the patina on the metal, suggesting a combination of natural decay and industrial elements. The arrangement might imply a sort of controlled chaos or an organic pattern, thus the title "Loose Pattern." The work could be interpreted as exploring themes of structure and randomness, craftsmanship, or the relationship between nature and industry.
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Loose Pattern&body=I would like to purchase the Loose Pattern. Please provide further details.">$2,926.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Loose Pattern&body=I would like to purchase the Loose Pattern. Please provide further details.">$2,200.00</a>
                     </p>
                 </div>
             </div>
@@ -314,7 +313,7 @@
             <div class="col-md-4 col-sm-12">
                 <div class="sale-item-container" onclick="expandCard(this)">
                     <img src="./assets/images/DeskChair.jpg" alt="Desk Chair" class="sale-item-image">
-                    <h3 class="sale-item-title">Desk Chair</h3>
+                    <h3 class="sale-item-title">Desk Chair </h3> <p>26 x 32 x 42  <p>100 lbs<p>
                     <p class="sale-item-description">
                         The image presents a piece of furniture titled "Desk Chair" by David Flynn. It's a unique, handcrafted chair that seamlessly integrates natural wood elements with a metal frame. The chair features a seat and a separate desk surface, both made from beautifully polished wood with rich, dark, and reddish-brown tones, highlighting the natural grain and knots of the wood.
 
@@ -324,7 +323,7 @@
 
                         This combination of materials and the design choices give the piece an artistic, rustic-modern aesthetic. It's a functional piece of art that serves as both a chair and a small workstation, with a design that emphasizes the beauty of natural wood grain.
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Desk Chair&body=I would like to purchase the Desk Chair. Please provide further details.">$2,394.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Desk Chair&body=I would like to purchase the Desk Chair. Please provide further details.">$1,800.00</a>
                     </p>
                 </div>
             </div>
@@ -332,15 +331,16 @@
             <div class="col-md-4 col-sm-12">
                 <div class="sale-item-container" onclick="expandCard(this)">
                     <img src="./assets/images/Leaf.jpg" alt="Leaf CH" class="sale-item-image">
-                    <h3 class="sale-item-title">Leaf C.H.</h3>
+                    <h3 class="sale-item-title">Leaf C.H. </h3><p>6 x 8 x 8   <p>8 lbs<p>
                     <p class="sale-item-description">
+
                         The image features a metal sculpture titled "Leaf C.H." by David Flynn. The piece is crafted to resemble a leaf, with a textured, organic form that serves as the main body of the sculpture. The leaf is elongated and curved, with a stem-like structure that rises to support a circular, flat platform, possibly functioning as a candle holder.
 
                         The sculpture has a dark patina, which is typical for worked metal, giving it an antique and rustic appearance. The leaf's surface shows intricate details mimicking the natural veins and texture of a leaf, emphasizing the artistic craftsmanship that went into creating this piece.
 
                         The base of the sculpture is broad and flat, ensuring stability, while the platform supported by the leaf's stem is centered above the base, ideal for placing a candle or small object. The background is a simple, textured cloth, which contrasts with the smooth, metallic finish of the sculpture and brings out the details of the artwork. Overall, the sculpture combines natural inspiration with functional design, embodying a sense of simplicity and elegance.
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Leaf C.H.&body=I would like to purchase the Leaf C.H.. Please provide further details.">$565.25</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Leaf C.H.&body=I would like to purchase the Leaf C.H.. Please provide further details.">$425.00</a>
                     </p>
                 </div>
             </div>
@@ -349,8 +349,9 @@
             <div class="col-md-4 col-sm-12">
                 <div class="sale-item-container" onclick="expandCard(this)">
                     <img src="./assets/images/Petroglyth.jpg" alt="Petroglyph" class="sale-item-image">
-                    <h3 class="sale-item-title">Petroglyph.</h3>
+                    <h3 class="sale-item-title">Petroglyph</h3> <p>7 x 11 x 9  <p>350 lbs.<p>
                     <p class="sale-item-description">
+
                         The image shows a sculptural piece titled "Petroglyph" by David Flynn. This artwork appears to be a mixed-media piece that incorporates both wood and metal elements, and it seems to function as a bench or a low table.
 
                         The top surface of the piece is made from weathered wooden planks that show signs of natural aging, such as a distressed white paint finish with spots of bare wood and rust stains, likely from previous metal contact. These planks are supported by a metal frame with a dark finish, which includes a sloping, shelter-like roof over the wooden planks, providing a sense of enclosure or protection.
@@ -359,7 +360,7 @@
 
                         The combination of the petroglyph-inspired designs and the rustic wood and metal materials gives the piece a sense of blending historical art forms with contemporary artistic expression and functionality. The use of materials and the artwork's form suggest a dialogue between past and present, as well as between art and utility.
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Petroglyph&body=I would like to purchase the Petroglyph  Please provide further details.">$2,926.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Petroglyph&body=I would like to purchase the Petroglyph  Please provide further details.">$2,200.00</a>
                     </p>
                 </div>
             </div>
@@ -372,7 +373,7 @@
 
 
                     <p class="sale-item-price">
-                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Best of The West&body=I would like to purchase the Best of The West  Please provide further details.">$2,394.00</a>
+                        <a href="mailto:David@DavidAFlynn.com?subject=Purchase Inquiry: Best of The West&body=I would like to purchase the Best of The West  Please provide further details.">$1,800.00</a>
                     </p>
                 </div>
             </div>
@@ -454,6 +455,9 @@
     </main>
 
     <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <div class="copyright-disclaimer">
+            <p>&copy; 2023 by David Flynn. <p>All Rights Reserved. <p>All images and content are the property of David Flynn and may not be reproduced, downloaded, disseminated, published, or transferred in any form or by any means, without prior written permission.</p>
+        </div>
         <p>Blog built for <a href="https://davidaflynn.com/">David A. Flynn</a> by <a href="https://michaelgalde.com">Michael Galde</a>.</p>
         <p class="mb-0">
             <a href="#">Back to top</a>
