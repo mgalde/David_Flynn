@@ -1,208 +1,139 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154639134-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  
 
-  gtag('config', 'UA-154639134-1');
-</script>
+    
 
-<meta charset="UTF-8">
-<title>David Flynn 404</title>
+  <title>David A. Flynn - 404 Page</title>
+
+    <link rel="canonical" href="https://davidaflynn.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Rubik&display=swap" rel="stylesheet">
+  
+  
+  
 <style>
-    html, body{
-    background: #231A1B;
-    color:crimson;
-    display:block;
-    height:100vh;
-    width:100vw;
-    padding:0;
-    margin:0;
-    font-family: Arial;
-    text-shadow:0 0 10px;
-    font-size:64px;
-    filter: blur(0.5px);
-    line-height:1rem;
-    overflow:hidden;
+body {
+  background-color: #2F3242;
 }
-#bg1, #bg2{
-    display:block;
-    content:'';
-    width:50vw;
-    height:100vh;
-    position:absolute;
-    z-index:-2;
-    animation: blink 0.3s linear infinite;
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
 }
-
-.fa-exclamation-triangle{
-    animation: blink 0.8s linear infinite;
+.message-box {
+  height: 200px;
+  width: 380px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #FFF;
+  font-family: Roboto;
+  font-weight: 300;
 }
-
-
-#bg1{
-    top:0;
-    left:0;
-    background: repeating-linear-gradient(
-            -45deg,
-            #231A1B,
-            #231A1B 100px,
-            #CE212B 101px,
-            yellow 103px,
-            yellow 200px,
-            #CE212B 202px
-    );
+.message-box h1 {
+  font-size: 60px;
+  line-height: 46px;
+  margin-bottom: 40px;
 }
-#bg2{
-    top:0;
-    right:0;
-    background: repeating-linear-gradient(
-            45deg,
-            #231A1B,
-            #231A1B 100px,
-            #CE212B 101px,
-            yellow 103px,
-            yellow 200px,
-            #CE212B 202px
-    );
+.buttons-con .action-link-wrap {
+  margin-top: 40px;
 }
-#container{
-    height:100vh;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.buttons-con .action-link-wrap a {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px
 }
-#content{
-    width:100vw;
-    display:inline-block;
-    text-align:center;
-    padding:10px 0;
-}
-h1{
-    padding:0;
-    margin:0;
-    font-size:2rem;
-    line-height:1.75rem;
-}
-.main{
-    position:relative;
-    padding:10px 0;
-    margin:-5px;
-    border-top: 15px solid #CE212B;
-    border-bottom: 15px solid #CE212B;
-    box-shadow: 0 0 10px #CE212B, 0 0 10px #CE212B inset;
-}
-.black-bg:after{
-    position:absolute;
-    display:block;
-    content:'';
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:-1;
-    background: #231A1B;
-    box-shadow: 0 0 2px 40px #231A1B;
-}
-.black-bg-small:after{
-    position:absolute;
-    display:block;
-    content:'';
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:-1;
-    background: #231A1B;
-    box-shadow: 0 0 2px 15px #231A1B;
-    border-radius: 5px;
-}
-.bigtext{
-
-  color:white;
-    animation: scroll 3s linear infinite;
-
+.buttons-con .action-link-wrap a:hover {
+  background: #5A5C6C;
+  color: #fff;
 }
 
-.bigText{
-   animation: blinker 1s linear infinite;
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  animation-delay: .2s; 
+}
+#Polygon-3 {
+  animation-delay: .4s; 
+}
+#Polygon-4 {
+  animation-delay: .6s; 
+}
+#Polygon-5 {
+  animation-delay: .8s; 
 }
 
-.secondary{
-  width:100%;
-  opacity:0.75;
-  animation: scroll 15s linear infinite;
-}
-.cartridge{
-    position:relative;
-    display:inline-block;
-    border: 5px solid #DD8F2B;
-    border-radius: 10px;
-    padding:10px;
-    font-size:2rem;
-    font-weight:bold;
-    line-height:2rem;
-}
-@keyframes scroll {
-    from{ transform: translateX(80vw)}
-    to{ transform: translateX(-80vw)}
-}
-@keyframes blink {
-    0%{ opacity: 1}
-    40%{ opacity: 0}
-    60%{ opacity: 0}
-    100%{ opacity: 1}
-}
-
-
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
+@keyframes float {
+	100% {
+    transform: translateY(20px);
   }
 }
-  </style>
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
+  }
+  .message-box {
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
 </head>
+
 <body translate="no">
-<!doctype html>
-<html lang="en">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<head>
-<meta charset="UTF-8">
-<title>David Flynn 404</title>
-</head>
-<body>
-  <div id="bg1"></div>
-  <div id="bg2"></div>
-  <div id="container">
-    <div id="content">
-      <div class="cartridge black-bg-small">
-        ERROR 404
-      </div>
-      <br />
-      <br />
-      <div class="main black-bg">
-        <span class="scrolling">
-          <div class="secondary">WARNING</div>
-          <h1 class="bigtext">EMERGENCY</h1>
-          <div class="secondary">
-            <i class="fa fa-exclamation-triangle   "></i>
-            PAGE NOT FOUND
-            <i class="fa fa-exclamation-triangle   "></i></div>
-          </span>
-        </div>
-        <br />
-        <div class="cartridge black-bg-small">
-          PAGE NOT FOUND
-        </div>
-      </div>
+  <svg width="380px" height="500px" viewBox="0 0 837 1045" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z" id="Polygon-1" stroke="#007FB2" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M78.5,529 L147,569.186414 L147,648.311216 L78.5,687 L10,648.311216 L10,569.186414 L78.5,529 Z" id="Polygon-2" stroke="#EF4A5B" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M773,186 L827,217.538705 L827,279.636651 L773,310 L719,279.636651 L719,217.538705 L773,186 Z" id="Polygon-3" stroke="#795D9C" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M639,529 L773,607.846761 L773,763.091627 L639,839 L505,763.091627 L505,607.846761 L639,529 Z" id="Polygon-4" stroke="#F2773F" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M281,801 L383,861.025276 L383,979.21169 L281,1037 L179,979.21169 L179,861.025276 L281,801 Z" id="Polygon-5" stroke="#36B455" stroke-width="6" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
+<div class="message-box">
+  <h1>404</h1>
+  <p>Page not found</p>
+  <div class="buttons-con">
+    <div class="action-link-wrap">
+      <a onclick="history.back(-1)" class="link-button link-back-button">Go Back</a>
+      <a href="https://davidaflynn.com/" class="link-button">Go to Home Page</a>
     </div>
-  </body>
-  </html>
+  </div>
+</div>
+  <script src='https://kit.fontawesome.com/54951c559c.js'></script>
+  
+  
 </body>
+
 </html>
